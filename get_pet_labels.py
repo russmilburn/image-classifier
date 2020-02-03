@@ -46,7 +46,13 @@ def get_pet_labels(image_dir):
 
     print("\nPrints 10 filenames from folder {}".format(image_dir))
 
-    for idx in range(0, 10, 1):
+    top_of_range = 10
+    if len(filename_list) > 10:
+        top_of_range = 10
+    else:
+        top_of_range = len(filename_list)
+
+    for idx in range(0, top_of_range, 1):
         print('{:2d} file: {:>25}'.format(idx + 1, filename_list[idx]))
 
     results_dic = dict()

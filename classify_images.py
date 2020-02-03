@@ -69,10 +69,11 @@ def classify_images(images_dir, results_dic, model):
     """
     for key in results_dic:
         model_label = classifier(images_dir + key, model).lower().strip()
+        print('model_label:  ', model_label)
 
         truth = results_dic[key][0]
 
-        print('the label is:: {}, this is a dog:: {}'.format(truth, (truth in model_label)))
+        print('the label:: {} and model_label:: {} match:: {}'.format(truth, model_label, (truth in model_label)))
 
         if truth in model_label:
             results_dic[key].append(model_label)
